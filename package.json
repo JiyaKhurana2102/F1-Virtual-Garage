@@ -1,16 +1,20 @@
 {
   "dependencies": {
+    "@expo/vector-icons": "^15.0.3",
     "@react-navigation/bottom-tabs": "^7.9.0",
     "@react-navigation/native": "^7.1.26",
     "expo": "^54.0.30",
+    "expo-asset": "^12.0.12",
     "expo-gl": "~16.0.9",
     "expo-three": "^2.2.1",
     "react": "19.1.0",
     "react-native": "0.81.5",
-    "three": "^0.166.1"
+    "three": "^0.150.1"
   },
   "devDependencies": {
     "@types/react": "~19.1.10",
+    "@types/react-native": "^0.72.8",
+    "@types/three": "^0.182.0",
     "typescript": "~5.9.2"
   }
 }
