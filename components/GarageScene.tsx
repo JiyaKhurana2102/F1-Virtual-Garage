@@ -4,6 +4,7 @@ import { GLView } from 'expo-gl';
 import * as THREE from 'three';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Asset } from 'expo-asset';
+import { Renderer } from 'expo-three';
 
 // GarageScene: renders a 3D car model using expo-gl and three.js without expo-three
 export default function GarageScene() {
@@ -19,15 +20,9 @@ export default function GarageScene() {
   async function onContextCreate(gl: any) {
     const { drawingBufferWidth: width, drawingBufferHeight: height } = gl;
 
-    // Create a WebGLRenderer directly using the expo GL context.
-    // This avoids using expo-three which pulls in many example loaders.
-    const renderer = new THREE.WebGLRenderer({
-      context: gl,
-      antialias: true,
-    } as any);
-
-    // When using a non-DOM GLView, set size like this and do not use canvas linked DOM
-    renderer.setSize(width, height, false);
+    // Use expo-three's Renderer to bind the Expo GL context to three.js correctly
+    const renderer = new Renderer({ gl });
+    renderer.setSize(width, height);
     renderer.setClearColor(new THREE.Color('#0E0E10'));
 
     // Basic scene setup
